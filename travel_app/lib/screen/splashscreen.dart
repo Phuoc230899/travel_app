@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:travel_app/home.dart';
+import 'package:travel_app/screen/onboaring.dart';
 
 class SplashScreen extends StatelessWidget {
   SplashScreen({super.key});
 
   void navigateToScreen2(BuildContext context) {
-    Future.delayed(Duration(seconds: 4), () {
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => const Homepage(),
+        builder: (context) => const OnBoard(),
       ));
     });
   }
