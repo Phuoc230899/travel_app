@@ -39,6 +39,9 @@ dependencies:
   introduction_screen: ^3.1.11
   smooth_page_indicator: ^1.1.0
   flutter_svg: ^2.0.7
+  fitted_gridview: ^1.0.0
+  date_field: ^3.0.5
+  custom_date_range_picker: ^1.0.10
 
 dev_dependencies:
   flutter_test:

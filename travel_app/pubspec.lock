@@ -57,6 +57,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.6"
+  custom_date_range_picker:
+    dependency: "direct main"
+    description:
+      name: custom_date_range_picker
+      sha256: e2814b22af6fd72909f23a86400eec0454417e6955314e2bfb2ffd88019ac345
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.10"
+  date_field:
+    dependency: "direct main"
+    description:
+      name: date_field
+      sha256: "756305983fa63e3a3a74b6f1074716a37fa8f4156b97ddf184b8576c1caef630"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.5"
   dots_indicator:
     dependency: transitive
     description:
@@ -73,6 +89,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.1"
+  fitted_gridview:
+    dependency: "direct main"
+    description:
+      name: fitted_gridview
+      sha256: "8fd82d392e8a2d5f6fb6048206cb66d0b656425b1d02cdb9bd24ec3929263512"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -160,6 +184,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "3bc132a9dbce73a7e4a21a17d06e1878839ffbf975568bc875c60537824b0c4d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.18.1"
   introduction_screen:
     dependency: "direct main"
     description:

@@ -23,7 +23,7 @@ class _OnBoardState extends State<OnBoard> {
     PageController pageController = PageController();
 
     void _goToNextPage() {
-      if (_currentPage < pageCount - 1) {
+      if (_currentPage < pageCount ) {
         pageController.nextPage(
           duration: const Duration(milliseconds: 300),
           curve: Curves.easeInOut,
@@ -32,7 +32,7 @@ class _OnBoardState extends State<OnBoard> {
           _currentPage++;
         });
       }
-      if (_currentPage == 2) {
+      if (_currentPage > 2) {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => const Homepage()));
       }

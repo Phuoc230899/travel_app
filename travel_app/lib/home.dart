@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:travel_app/screen/hotel_booking.dart';
+import 'package:travel_app/widget/countryimage.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -25,6 +27,7 @@ class _HomepageState extends State<Homepage> {
                   'assets/images/oval_home.png',
                   fit: BoxFit.cover,
                   width: size.width,
+                  height: 200.h,
                 ),
               ),
               Padding(
@@ -145,19 +148,25 @@ class _HomepageState extends State<Homepage> {
                       child: Padding(
                     padding: EdgeInsets.only(left: 10.w),
                     child: Column(children: [
-                      Container(
-                        width: 98.33.w,
-                        height: 75.h,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16.0),
-                            color: const Color.fromARGB(255, 254, 156, 94)
-                                .withOpacity(0.2)),
-                        child: Center(
-                            child: SvgPicture.asset(
-                          'assets/icon/hotels.svg',
-                          width: 24.w,
-                          height: 24.h,
-                        )),
+                      InkWell(
+                        onTap: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HotelBooking())),
+                        child: Container(
+                          width: 98.33.w,
+                          height: 75.h,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16.0),
+                              color: const Color.fromARGB(255, 254, 156, 94)
+                                  .withOpacity(0.2)),
+                          child: Center(
+                              child: SvgPicture.asset(
+                            'assets/icon/hotels.svg',
+                            width: 24.w,
+                            height: 24.h,
+                          )),
+                        ),
                       ),
                       Padding(
                           padding: EdgeInsets.only(top: 10.h),
@@ -246,7 +255,9 @@ class _HomepageState extends State<Homepage> {
                       fontWeight: FontWeight.w500),
                 ),
               ),
-              SizedBox(width: 97.w,),
+              SizedBox(
+                width: 97.w,
+              ),
               SizedBox(
                 width: 46.w,
                 height: 17.h,
@@ -256,16 +267,16 @@ class _HomepageState extends State<Homepage> {
                       fontFamily: 'Rubik',
                       fontSize: 14,
                       fontWeight: FontWeight.w500,
-                      color: Color.fromARGB(
-                        255,
-                        97,
-                        85,
-                        204
-                      )),
+                      color: Color.fromARGB(255, 97, 85, 204)),
                 ),
               )
             ]),
-          )
+          ),
+          const Expanded(
+              child: SizedBox(
+                  width: double.infinity,
+                  height: double.infinity,
+                  child: countryWidget())),
         ],
       ),
     );
