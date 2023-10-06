@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/data/country.dart';
 import 'package:travel_app/data/hotels.dart';
 import 'package:travel_app/screen/detail_hotel.dart';
+import 'package:travel_app/screen/select_room.dart';
 
 class Hotels extends StatefulWidget {
   const Hotels({super.key});
@@ -33,8 +34,8 @@ class _HotelsState extends State<Hotels> {
                 ),
               ),
               Positioned(
-                  left: 25,
-                  top: 60,
+                  left: 25.w,
+                  top: 60.h,
                   child: Container(
                     width: 32.w,
                     height: 32.w,
@@ -68,8 +69,8 @@ class _HotelsState extends State<Hotels> {
                 ),
               ),
               Positioned(
-                  right: 25,
-                  top: 60,
+                  right: 25.w,
+                  top: 60.h,
                   child: Container(
                     width: 32.w,
                     height: 32.w,
@@ -86,262 +87,293 @@ class _HotelsState extends State<Hotels> {
                       ),
                     ),
                   )),
-            ],
-          ),
-          Expanded(
-            child: Padding(
-              padding: EdgeInsets.only(top: 20.h),
-              child: SizedBox(
-                  width: double.infinity,
-                  height: double.infinity,
-                  child: CustomScrollView(
-                    slivers: [
-                      SliverPadding(
-                        padding: EdgeInsets.only(left: 10.w, right: 10.w),
-                        sliver: SliverList(
-                            delegate: SliverChildBuilderDelegate(
-                          childCount: 1,
-                          (context, index) {
-                            return Column(
-                              children: list_hotel.map((item) {
-                                return Padding(
-                                  padding: EdgeInsets.only(bottom: 10.h),
-                                  child: Card(
-                                    elevation: 5.0,
-                                    shape: RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(16.0)),
-                                    child: SizedBox(
-                                      width: 325.w,
-                                      height: 310.h,
-                                      child: Column(
-                                        children: [
-                                          Align(
-                                            alignment: Alignment.centerLeft,
-                                            child: Stack(children: [
-                                              SizedBox(
-                                                width: 305.w,
-                                                height: 115.h,
-                                                child: InkWell(
-                                                  onTap: () => Navigator.push(
-                                                      context,
-                                                      MaterialPageRoute(
-                                                          builder: (context) =>
-                                                              detailHotel(
-                                                                hotel: item,
-                                                              ))),
-                                                  child: ClipRRect(
-                                                    borderRadius:
-                                                        const BorderRadius.only(
-                                                            topLeft:
-                                                                Radius.circular(
-                                                                    16),
-                                                            bottomRight:
-                                                                Radius.circular(
-                                                                    16)),
-                                                    child: Hero(
-                                                      tag: item.img,
-                                                      child: Image.asset(
-                                                        item.img,
-                                                        fit: BoxFit.cover,
-                                                        width: 305.w,
-                                                        height: 115.h,
+              Center(
+                child: Container(
+                  width: 375.w,
+                  height: size.height * 0.85,
+                  margin: EdgeInsets.only(top: size.height * 0.15),
+                  decoration: const BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(32),
+                          topRight: Radius.circular(32))),
+                  child: SizedBox(
+                    width: 335.w,
+                    height: double.infinity,
+                    child: CustomScrollView(
+                      slivers: [
+                        SliverPadding(
+                          padding: EdgeInsets.only(left: 10.w, right: 10.w),
+                          sliver: SliverList(
+                              delegate: SliverChildBuilderDelegate(
+                            childCount: 1,
+                            (context, index) {
+                              return Column(
+                                children: list_hotel.map((item) {
+                                  return Padding(
+                                    padding: EdgeInsets.only(bottom: 10.h),
+                                    child: Card(
+                                      elevation: 5.0,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(16.0)),
+                                      child: SizedBox(
+                                        width: 325.w,
+                                        height: 310.h,
+                                        child: Column(
+                                          children: [
+                                            Align(
+                                              alignment: Alignment.centerLeft,
+                                              child: Stack(children: [
+                                                SizedBox(
+                                                  width: 305.w,
+                                                  height: 115.h,
+                                                  child: InkWell(
+                                                    onTap: () => Navigator.push(
+                                                        context,
+                                                        MaterialPageRoute(
+                                                            builder:
+                                                                (context) =>
+                                                                    detailHotel(
+                                                                      hotel:
+                                                                          item,
+                                                                    ))),
+                                                    child: ClipRRect(
+                                                      borderRadius:
+                                                          const BorderRadius
+                                                              .only(
+                                                              topLeft: Radius
+                                                                  .circular(16),
+                                                              bottomRight:
+                                                                  Radius
+                                                                      .circular(
+                                                                          16)),
+                                                      child: Hero(
+                                                        tag: item.img,
+                                                        child: Image.asset(
+                                                          item.img,
+                                                          fit: BoxFit.cover,
+                                                          width: 305.w,
+                                                          height: 115.h,
+                                                        ),
                                                       ),
                                                     ),
                                                   ),
                                                 ),
-                                              ),
-                                              Positioned(
-                                                  right: 10,
-                                                  top: 10,
-                                                  child: Icon(
-                                                    Icons.favorite,
-                                                    color: item.favourite
-                                                        ? const Color.fromARGB(
-                                                            255, 247, 119, 119)
-                                                        : Colors.white,
-                                                  ))
-                                            ]),
-                                          ),
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 20.w, top: 10.h),
-                                            child: Column(children: [
-                                              Align(
-                                                alignment: Alignment.centerLeft,
-                                                child: Text(
-                                                  item.name,
-                                                  style: const TextStyle(
-                                                      fontFamily: 'Rubik',
-                                                      fontSize: 20,
-                                                      fontWeight:
-                                                          FontWeight.w500,
-                                                      color: Colors.black),
+                                                Positioned(
+                                                    right: 10,
+                                                    top: 10,
+                                                    child: Icon(
+                                                      Icons.favorite,
+                                                      color: item.favourite
+                                                          ? const Color
+                                                              .fromARGB(255,
+                                                              247, 119, 119)
+                                                          : Colors.white,
+                                                    ))
+                                              ]),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsets.only(
+                                                  left: 20.w, top: 10.h),
+                                              child: Column(children: [
+                                                Align(
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  child: Text(
+                                                    item.name,
+                                                    style: const TextStyle(
+                                                        fontFamily: 'Rubik',
+                                                        fontSize: 20,
+                                                        fontWeight:
+                                                            FontWeight.w500,
+                                                        color: Colors.black),
+                                                  ),
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                height: 10.h,
-                                              ),
-                                              Align(
-                                                alignment: Alignment.centerLeft,
-                                                child: Row(
-                                                  children: [
+                                                SizedBox(
+                                                  height: 10.h,
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  child: Row(
+                                                    children: [
+                                                      Image.asset(
+                                                          'assets/images/position.png'),
+                                                      SizedBox(
+                                                        width: 10.w,
+                                                      ),
+                                                      Text(
+                                                        '${item.address} - ',
+                                                        style: const TextStyle(
+                                                            fontFamily: 'Rubik',
+                                                            fontSize: 12,
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w400),
+                                                      ),
+                                                      Padding(
+                                                        padding:
+                                                            EdgeInsets.only(
+                                                                top: 5.h),
+                                                        child: Text(
+                                                          '${item.distance} km from destination',
+                                                          textAlign:
+                                                              TextAlign.center,
+                                                          style:
+                                                              const TextStyle(
+                                                                  fontFamily:
+                                                                      'Rubik',
+                                                                  fontSize: 10,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w400,
+                                                                  color: Colors
+                                                                      .grey),
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                                SizedBox(
+                                                  height: 10.h,
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  child: Row(children: [
                                                     Image.asset(
-                                                        'assets/images/position.png'),
+                                                        'assets/images/star.png'),
                                                     SizedBox(
                                                       width: 10.w,
                                                     ),
-                                                    Text(
-                                                      '${item.address} - ',
-                                                      style: const TextStyle(
-                                                          fontFamily: 'Rubik',
-                                                          fontSize: 12,
-                                                          fontWeight:
-                                                              FontWeight.w400),
-                                                    ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                          top: 5.h),
-                                                      child: Text(
-                                                        '${item.distance} km from destination',
-                                                        textAlign:
-                                                            TextAlign.center,
+                                                    Text.rich(TextSpan(
+                                                        text: item.rate,
                                                         style: const TextStyle(
                                                             fontFamily: 'Rubik',
-                                                            fontSize: 10,
+                                                            fontSize: 14,
                                                             fontWeight:
-                                                                FontWeight.w400,
-                                                            color: Colors.grey),
-                                                      ),
-                                                    ),
-                                                  ],
+                                                                FontWeight
+                                                                    .w400),
+                                                        children: [
+                                                          TextSpan(
+                                                              text:
+                                                                  ' (${item.reviews} reviews)',
+                                                              style: const TextStyle(
+                                                                  fontFamily:
+                                                                      'Rubik',
+                                                                  fontSize: 14,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w400,
+                                                                  color: Colors
+                                                                      .grey))
+                                                        ]))
+                                                  ]),
                                                 ),
-                                              ),
-                                              SizedBox(
-                                                height: 10.h,
-                                              ),
-                                              Align(
-                                                alignment: Alignment.centerLeft,
-                                                child: Row(children: [
-                                                  Image.asset(
-                                                      'assets/images/star.png'),
-                                                  SizedBox(
-                                                    width: 10.w,
-                                                  ),
-                                                  Text.rich(TextSpan(
-                                                      text: item.rate,
-                                                      style: const TextStyle(
-                                                          fontFamily: 'Rubik',
-                                                          fontSize: 14,
-                                                          fontWeight:
-                                                              FontWeight.w400),
-                                                      children: [
-                                                        TextSpan(
-                                                            text:
-                                                                ' (${item.reviews} reviews)',
+                                                SizedBox(
+                                                  height: 20.h,
+                                                ),
+                                                Align(
+                                                    alignment:
+                                                        Alignment.centerLeft,
+                                                    child: Image.asset(
+                                                      'assets/images/Line 15.png',
+                                                      width: 285.w,
+                                                      fit: BoxFit.cover,
+                                                    )),
+                                                SizedBox(
+                                                  height: 20.h,
+                                                ),
+                                                Align(
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  child: Padding(
+                                                    padding: EdgeInsets.only(
+                                                        right: 20.w),
+                                                    child: Row(children: [
+                                                      Expanded(
+                                                          child: Column(
+                                                        children: [
+                                                          Text(
+                                                            '${item.price}.000 VND',
                                                             style: const TextStyle(
                                                                 fontFamily:
                                                                     'Rubik',
-                                                                fontSize: 14,
+                                                                fontSize: 20,
                                                                 fontWeight:
                                                                     FontWeight
-                                                                        .w400,
-                                                                color: Colors
-                                                                    .grey))
-                                                      ]))
-                                                ]),
-                                              ),
-                                              SizedBox(
-                                                height: 20.h,
-                                              ),
-                                              Align(
-                                                  alignment:
-                                                      Alignment.centerLeft,
-                                                  child: Image.asset(
-                                                    'assets/images/Line 15.png',
-                                                    width: 285.w,
-                                                    fit: BoxFit.cover,
-                                                  )),
-                                              SizedBox(
-                                                height: 20.h,
-                                              ),
-                                              Align(
-                                                alignment: Alignment.centerLeft,
-                                                child: Padding(
-                                                  padding: EdgeInsets.only(
-                                                      right: 20.w),
-                                                  child: Row(children: [
-                                                    Expanded(
-                                                        child: Column(
-                                                      children: [
-                                                        Text(
-                                                          '${item.price}.000 VND',
-                                                          style: const TextStyle(
-                                                              fontFamily:
-                                                                  'Rubik',
-                                                              fontSize: 20,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w500),
-                                                        ),
-                                                        SizedBox(
-                                                          height: 20.h,
-                                                        ),
-                                                        const Text(
-                                                          '/night',
-                                                          style: TextStyle(
-                                                              fontFamily:
-                                                                  'Rubik',
-                                                              fontSize: 10,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .w400),
-                                                        )
-                                                      ],
-                                                    )),
-                                                    Expanded(
-                                                        child: Container(
-                                                      width: 150.w,
-                                                      height: 50,
-                                                      decoration: BoxDecoration(
-                                                          color: const Color
-                                                              .fromARGB(255,
-                                                              143, 103, 232),
-                                                          borderRadius:
-                                                              BorderRadius
-                                                                  .circular(
-                                                                      32)),
-                                                      child: const Center(
-                                                          child: Text(
-                                                        "Book a Room",
-                                                        style: TextStyle(
-                                                            fontFamily: "Rubik",
-                                                            fontSize: 16,
-                                                            fontWeight:
-                                                                FontWeight.w500,
-                                                            color:
-                                                                Colors.white),
+                                                                        .w500),
+                                                          ),
+                                                          SizedBox(
+                                                            height: 20.h,
+                                                          ),
+                                                          const Text(
+                                                            '/night',
+                                                            style: TextStyle(
+                                                                fontFamily:
+                                                                    'Rubik',
+                                                                fontSize: 10,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w400),
+                                                          )
+                                                        ],
                                                       )),
-                                                    ))
-                                                  ]),
-                                                ),
-                                              )
-                                            ]),
-                                          )
-                                        ],
+                                                      Expanded(
+                                                          child: InkWell(
+                                                            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> const selectRoom())),
+                                                        child: Container(
+                                                          width: 150.w,
+                                                          height: 50,
+                                                          decoration: BoxDecoration(
+                                                              color: const Color
+                                                                  .fromARGB(
+                                                                  255,
+                                                                  143,
+                                                                  103,
+                                                                  232),
+                                                              borderRadius:
+                                                                  BorderRadius
+                                                                      .circular(
+                                                                          32)),
+                                                          child: const Center(
+                                                              child: Text(
+                                                            "Book a Room",
+                                                            style: TextStyle(
+                                                                fontFamily:
+                                                                    "Rubik",
+                                                                fontSize: 16,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .w500,
+                                                                color: Colors
+                                                                    .white),
+                                                          )),
+                                                        ),
+                                                      ))
+                                                    ]),
+                                                  ),
+                                                )
+                                              ]),
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                );
-                              }).toList(),
-                            );
-                          },
-                        )),
-                      )
-                    ],
-                  )),
-            ),
-          )
+                                  );
+                                }).toList(),
+                              );
+                            },
+                          )),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
         ],
       ),
     );

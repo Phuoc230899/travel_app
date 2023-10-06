@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:travel_app/data/hotels.dart';
+import 'package:travel_app/screen/select_room.dart';
 
 class detailHotel extends StatefulWidget {
   const detailHotel({super.key, required this.hotel});
@@ -410,21 +411,24 @@ class _detailHotelState extends State<detailHotel> {
       bottomNavigationBar: BottomAppBar(
           child: Padding(
         padding: EdgeInsets.only(left: 20.w, right: 20.w),
-        child: Container(
-          width: 325.w,
-          height: 50.h,
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(32),
-              color: const Color.fromARGB(255, 143, 103, 232)),
-          child: const Center(
-              child: Text(
-            "Select Room",
-            style: TextStyle(
-                fontFamily: 'Rubik',
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                color: Colors.white),
-          )),
+        child: InkWell(
+          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => const selectRoom())),
+          child: Container(
+            width: 325.w,
+            height: 50.h,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(32),
+                color: const Color.fromARGB(255, 143, 103, 232)),
+            child: const Center(
+                child: Text(
+              "Select Room",
+              style: TextStyle(
+                  fontFamily: 'Rubik',
+                  fontSize: 16,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.white),
+            )),
+          ),
         ),
       )),
     );
